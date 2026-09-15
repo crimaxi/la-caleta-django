@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}La Caleta{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header class="cabecera">
+        <a class="marca" href="{% url 'Carta:inicio' %}">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo de La Caleta">
+            <span>La Caleta</span>
+        </a>
+        <p>Cocina de costa, hecha con tiempo</p>
+    </header>
+
+    <main class="contenedor">
+        {% block contenido %}{% endblock %}
+    </main>
+</body>
+</html>

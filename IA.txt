@@ -1,0 +1,47 @@
+Registro de prompts herramienta usada: copilot 
+===================
+
+1. genera un estilo moderno a la pagina y que las categorias se vean en forma de etiqueta
+    Cambios realizados con ese prompt:
+
+        Modernizo la tipografía usando una fuente sans-serif.
+        Mejoró la jerarquía visual de títulos y textos.
+        Añadio un fondo con degradado suave.
+        Actualizo el encabezado con un estilo más moderno.
+        Agregué sombras y bordes redondeados a las tarjetas.
+        Añadio efecto visual al pasar el cursor sobre las tarjetas.
+        Convirtio las categorías en etiquetas tipo pill.
+        Diferencio visualmente las categorías:
+            Entrada
+            Fondo
+            Postre
+        Añadio una etiqueta especial para platos picantes.
+        Mejoro la presentación del precio y tiempo de preparación.
+        Ajusto la visualización de platos vegetarianos.
+        Alineo visualmente la página de detalle con la carta.
+        Añadio un botón destacado para volver a la carta.
+        Mejoro la adaptación responsive para dispositivos móviles.
+        Verifico que manage.py check continuara sin errores.
+
+    archivos modificados con el prompt:
+
+        inicio.html
+        detalle.html
+        estilos.css    
+
+2. que la carta y el detalle de los platos tenga coherencia 
+    Cambios realizados con ese prompt:
+    
+        Se organizó el detalle en una tarjeta visual similar a las tarjetas de la carta.
+        Se añadió una cabecera con el nombre, la categoría y el precio destacado.
+        Se reutilizaron las etiquetas de categoría y picante.
+        Se organizó la información en una ficha con el tiempo de preparación, picante, vegetarianismo y precio con propina.
+        Se destacó la clasificación del plato.
+        Se convirtió “Volver a la carta” en un botón.
+        Se añadió adaptación responsive para dispositivos móviles.
+        Se unificaron colores, bordes, sombras, espaciado y tipografía entre ambas páginas.
+    
+    archivos modificados con el prompt:
+
+        detalle.html
+        estilos.css

@@ -31,11 +31,37 @@ PLATOS = [
 
 
 def inicio(request):
-    return render(request, 'Carta/inicio.html', {'platos': PLATOS})
+    precio_promedio = round(sum(plato['precio'] for plato in PLATOS) / len(PLATOS))
+    cantidad_vegetarianos = sum(1 for plato in PLATOS if plato['vegetariano'])
+    contexto = {
+        'platos': PLATOS,
+        'precio_promedio': precio_promedio,
+        'cantidad_vegetarianos': cantidad_vegetarianos,
+    }
+    return render(request, 'Carta/inicio.html', contexto)
 
 
 def detalle(request, id):
-    plato = next((plato for plato in PLATOS if plato['id'] == id), None)
+    plato = None
+    for plato_candidato in PLATOS:
+        if plato_candidato['id'] == id:
+            plato = plato_candidato
+            break
+
     if plato is None:
         raise Http404('El plato no existe.')
-    return render(request, 'Carta/detalle.html', {'plato': plato})
+
+    precio_con_propina = round(plato['precio'] * 1.10)
+    if plato['vegetariano'] and not plato['picante']:
+        etiqueta = 'Apto para todos'
+    elif plato['picante']:
+        etiqueta = 'Contiene aji'
+    else:
+        etiqueta = 'Plato tradicional'
+
+    contexto = {
+        'plato': plato,
+        'precio_con_propina': precio_con_propina,
+        'etiqueta': etiqueta,
+    }
+    return render(request, 'Carta/detalle.html', contexto)

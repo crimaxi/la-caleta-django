@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ plato.nombre }} | La Caleta</title>
-</head>
-<body>
-    <header>
-        <h1>{{ plato.nombre }}</h1>
-        <p>{{ plato.descripcion }}</p>
-    </header>
+{% extends 'base.html' %}
 
-    <main>
-        <dl>
-            <dt>Categoría</dt>
-            <dd>{{ plato.categoria }}</dd>
-            <dt>Precio</dt>
-            <dd>${{ plato.precio }}</dd>
-            <dt>Tiempo de preparación</dt>
-            <dd>{{ plato.tiempo }} minutos</dd>
-            <dt>Picante</dt>
-            <dd>{% if plato.picante %}Sí{% else %}No{% endif %}</dd>
-            <dt>Vegetariano</dt>
-            <dd>{% if plato.vegetariano %}Sí{% else %}No{% endif %}</dd>
+{% block titulo %}{{ plato.nombre }} | La Caleta{% endblock %}
+
+{% block contenido %}
+    <article class="detalle-plato">
+        <p class="eyebrow">Detalle del plato</p>
+        <div class="detalle-cabecera">
+            <div>
+                <h2>{{ plato.nombre }}</h2>
+                <div class="tarjeta-meta">
+                    <span class="etiqueta etiqueta-{{ plato.categoria|lower }}">{{ plato.categoria }}</span>
+                    {% if plato.picante %}<span class="etiqueta etiqueta-picante">Picante</span>{% endif %}
+                </div>
+            </div>
+            <p class="detalle-precio">${{ plato.precio }}</p>
+        </div>
+        <p>{{ plato.descripcion }}</p>
+        <dl class="ficha-plato">
+            <div><dt>Tiempo de preparación</dt><dd>{{ plato.tiempo }} minutos</dd></div>
+            <div><dt>Picante</dt><dd>{{ plato.picante|yesno:'Sí,No' }}</dd></div>
+            <div><dt>Vegetariano</dt><dd>{{ plato.vegetariano|yesno:'Sí,No' }}</dd></div>
+            <div><dt>Precio con propina (10%)</dt><dd>${{ precio_con_propina }}</dd></div>
         </dl>
-        <a href="{% url 'Carta:inicio' %}">Volver a la carta</a>
-    </main>
-</body>
-</html>
+        <p class="clasificacion"><strong>{{ etiqueta }}</strong></p>
+        <a class="boton" href="{% url 'Carta:inicio' %}">Volver a la carta</a>
+    </article>
+{% endblock %}

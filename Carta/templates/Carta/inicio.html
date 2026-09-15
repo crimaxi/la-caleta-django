@@ -1,36 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Caleta | Carta</title>
-</head>
-<body>
-    <header>
-        <h1>La Caleta</h1>
-        <p>Carta de platos</p>
-    </header>
+{% extends 'base.html' %}
 
-    <main>
+{% block titulo %}Carta | La Caleta{% endblock %}
+
+{% block contenido %}
+    <section class="intro">
+        <p class="eyebrow">Nuestra selección</p>
         <h2>Nuestros platos</h2>
+        <div class="resumen">
+            <p>Precio promedio: <strong>${{ precio_promedio }}</strong></p>
+            <p>Platos vegetarianos: <strong>{{ cantidad_vegetarianos }}</strong></p>
+        </div>
+    </section>
+
+    <section class="lista-platos">
         {% for plato in platos %}
             <article>
+                <div class="tarjeta-meta">
+                    <span class="etiqueta etiqueta-{{ plato.categoria|lower }}">{{ plato.categoria }}</span>
+                    {% if plato.picante %}<span class="etiqueta etiqueta-picante">Picante</span>{% endif %}
+                </div>
                 <h3>{{ plato.nombre }}</h3>
-                <p>{{ plato.descripcion }}</p>
+                <p>{{ plato.descripcion|truncatewords:14 }}</p>
                 <p>
-                    <strong>{{ plato.categoria }}</strong>
-                    &middot; ${{ plato.precio }}
-                    &middot; {{ plato.tiempo }} minutos
+                    <strong>${{ plato.precio }}</strong>
+                    <span class="separador">/</span>
+                    {{ plato.tiempo }} min
                 </p>
                 <p>
-                    {% if plato.vegetariano %}Vegetariano{% endif %}
-                    {% if plato.picante %} &middot; Picante{% endif %}
+                    <span class="estado">{{ plato.vegetariano|yesno:'Vegetariano,No vegetariano' }}</span>
                 </p>
                 <a href="{% url 'Carta:detalle' plato.id %}">Ver detalle</a>
             </article>
         {% empty %}
             <p>No hay platos disponibles.</p>
         {% endfor %}
-    </main>
-</body>
-</html>
+    </section>
+{% endblock %}
