@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ plato.nombre }} | La Caleta</title>
+</head>
+<body>
+    <header>
+        <h1>{{ plato.nombre }}</h1>
+        <p>{{ plato.descripcion }}</p>
+    </header>
+
+    <main>
+        <dl>
+            <dt>Categoría</dt>
+            <dd>{{ plato.categoria }}</dd>
+            <dt>Precio</dt>
+            <dd>${{ plato.precio }}</dd>
+            <dt>Tiempo de preparación</dt>
+            <dd>{{ plato.tiempo }} minutos</dd>
+            <dt>Picante</dt>
+            <dd>{% if plato.picante %}Sí{% else %}No{% endif %}</dd>
+            <dt>Vegetariano</dt>
+            <dd>{% if plato.vegetariano %}Sí{% else %}No{% endif %}</dd>
+        </dl>
+        <a href="{% url 'Carta:inicio' %}">Volver a la carta</a>
+    </main>
+</body>
+</html>

@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 PLATOS = [
@@ -30,4 +31,11 @@ PLATOS = [
 
 
 def inicio(request):
-	return render(request, 'Carta/inicio.html', {'platos': PLATOS})
+    return render(request, 'Carta/inicio.html', {'platos': PLATOS})
+
+
+def detalle(request, id):
+    plato = next((plato for plato in PLATOS if plato['id'] == id), None)
+    if plato is None:
+        raise Http404('El plato no existe.')
+    return render(request, 'Carta/detalle.html', {'plato': plato})

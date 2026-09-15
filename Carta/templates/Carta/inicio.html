@@ -26,6 +26,7 @@
                     {% if plato.vegetariano %}Vegetariano{% endif %}
                     {% if plato.picante %} &middot; Picante{% endif %}
                 </p>
+                <a href="{% url 'Carta:detalle' plato.id %}">Ver detalle</a>
             </article>
         {% empty %}
             <p>No hay platos disponibles.</p>
