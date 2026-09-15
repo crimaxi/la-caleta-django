@@ -27,7 +27,7 @@
                     {{ plato.tiempo }} min
                 </p>
                 <p>
-                    <span class="estado">{{ plato.vegetariano|yesno:'Vegetariano,No vegetariano' }}</span>
+                    <span class="etiqueta etiqueta-estado">{{ plato.vegetariano|yesno:'Vegetariano,No vegetariano' }}</span>
                 </p>
                 <a href="{% url 'Carta:detalle' plato.id %}">Ver detalle</a>
             </article>

@@ -169,6 +169,11 @@ h2 {
     color: var(--coral);
 }
 
+.etiqueta-estado {
+    background: #e3f1eb;
+    color: var(--verde);
+}
+
 .estado {
     color: var(--verde);
     font-size: 0.86rem;
@@ -238,7 +243,6 @@ a {
 
 .clasificacion {
     margin-bottom: 1.5rem;
-    color: var(--verde) !important;
 }
 
 .boton {

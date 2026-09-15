@@ -31,7 +31,7 @@ Registro de prompts herramienta usada: copilot
 
 2. que la carta y el detalle de los platos tenga coherencia 
     Cambios realizados con ese prompt:
-    
+
         Se organizó el detalle en una tarjeta visual similar a las tarjetas de la carta.
         Se añadió una cabecera con el nombre, la categoría y el precio destacado.
         Se reutilizaron las etiquetas de categoría y picante.
@@ -45,3 +45,33 @@ Registro de prompts herramienta usada: copilot
 
         detalle.html
         estilos.css
+
+3. en el detalle cambia el tooltip de abajo para que tenga un estilo pill
+    Cambios realizados con ese prompt:
+
+        Se añadió la clase etiqueta-clasificacion.
+        Se aplicó fondo verde suave.
+        Se agregó borde redondeado completo.
+        Se ajustaron el padding, tamaño y peso de la fuente.
+        Se mantuvo coherencia con las etiquetas de categoría.
+
+    archivos modificados con el prompt:
+
+        detalle.html
+        estilos.css  
+
+4. hace que ese cambio sea coherente con el menu
+    Cambios realizados con ese prompt:
+
+        El menú y el detalle ahora comparten la clase .etiqueta.
+        Se creó la variante común .etiqueta-estado.
+        El estado vegetariano aparece como pill en la carta.
+        La clasificación del detalle usa el mismo estilo verde.
+        Se mantuvieron consistentes el tamaño, forma, padding y tipografía.
+        Se eliminó el uso de la clase anterior .etiqueta-clasificacion.
+
+    archivos modificados con el prompt:
+
+        detalle.html
+        estilos.css  
+        inicio.html

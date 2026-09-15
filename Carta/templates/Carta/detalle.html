@@ -22,7 +22,7 @@
             <div><dt>Vegetariano</dt><dd>{{ plato.vegetariano|yesno:'Sí,No' }}</dd></div>
             <div><dt>Precio con propina (10%)</dt><dd>${{ precio_con_propina }}</dd></div>
         </dl>
-        <p class="clasificacion"><strong>{{ etiqueta }}</strong></p>
+        <p class="clasificacion"><span class="etiqueta etiqueta-estado">{{ etiqueta }}</span></p>
         <a class="boton" href="{% url 'Carta:inicio' %}">Volver a la carta</a>
     </article>
 {% endblock %}
